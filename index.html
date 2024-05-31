@@ -8,6 +8,78 @@
     </head>
 
     <body style="margin: 0; overflow: hidden;">
-       <p>Hello World</p>
+        <a-scene
+            vr-mode-ui="enabled: false;"
+            loading-screen="enabled: false;"
+            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+            id="scene"
+            embedded
+            gesture-detector
+        >
+            <a-assets>
+                <a-asset-item id="wall" src="assets/House-O3.glb"></a-asset-item>
+                <a-asset-item id="barcelona" src="assets/heatmap_2_barcelona.png"></a-asset-item>
+                <a-asset-item id="agora" src="assets/heatmap_3_agora.png"></a-asset-item>
+            </a-assets>
+            <a-marker
+                type="pattern"
+                preset="custom"
+                url="assets/houseo.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                smooth="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-entity 
+                    position="0.0 -0.5 0.0" 
+                    rotation="0 0 0"
+                    scale="18 18 18"
+                    material="opacity: 0.1; transparent: true"
+                    gltf-model="#wall">
+                </a-entity>
+
+            </a-marker>
+            <a-marker
+                type="pattern"
+                preset="custom"
+                url="assets/barcelona.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                smooth="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerB"
+            >
+                <a-entity 
+                    position="0.0 -0.5 0.0" 
+                    rotation="0 0 0"
+                    scale="18 18 18"
+                    material="opacity: 0.1; transparent: true"
+                    gltf-model="#barcelona">
+                </a-entity>
+
+            </a-marker>
+            <a-marker
+                type="pattern"
+                preset="custom"
+                url="assets/agora.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                smooth="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerC"
+            >
+                <a-entity 
+                    position="0.0 -0.5 0.0" 
+                    rotation="0 0 0"
+                    scale="18 18 18"
+                    material="opacity: 0.1; transparent: true"
+                    gltf-model="#agora">
+                </a-entity>
+
+            </a-marker>
+
+            <a-entity camera></a-entity>
+        </a-scene>
     </body>
 </html>
