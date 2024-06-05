@@ -18,14 +18,14 @@
                     this.prepareMap()
                     this.update()
                 });
-                this.el.addEventListener('markerFound', e => {
-                    this.prepareMap()
-                    this.update()
-                });
-                this.el.addEventListener('markerLost', e => {
-                    this.prepareMap()
-                    this.remove()
-                });
+                // this.el.addEventListener('markerFound', e => {
+                //     this.prepareMap()
+                //     this.update()
+                // });
+                // this.el.addEventListener('markerLost', e => {
+                //     this.prepareMap()
+                //     this.remove()
+                // });
             },
             prepareMap: function () {
                 this.traverseMesh(node => {
@@ -111,7 +111,7 @@
                     scale="4.6 4.6 4.6"
                     material="opacity: 0.1; transparent: true"
                     gltf-model="#houseo_base" model-relative-opacity
-                    animation='property: model-relative-opacity.opacity;from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate;'>
+                    animation='property: model-relative-opacity.opacity;from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: model-loaded; begin:markerFound; end=markerLost;'>
                 </a-entity>
                 <a-entity 
                     position="2.3 -0.2 1.2" 
@@ -119,7 +119,7 @@
                     scale="4.6 4.6 4.6"
                     material="opacity: 0.1; transparent: true"
                     gltf-model="#houseo_area" model-relative-opacity
-                    animation='property: model-relative-opacity.opacity;from: 0; to: 0.8; dur: 1000;loop: true; dir: alternate;'>
+                    animation='property: model-relative-opacity.opacity;from: 0; to: 0.8; dur: 1000;loop: true; dir: alternate; startEvents: model-loaded; begin:markerFound; end=markerLost;'>
                 </a-entity>                
             </a-marker>
             <a-marker
