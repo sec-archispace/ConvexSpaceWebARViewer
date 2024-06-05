@@ -18,6 +18,14 @@
                     this.prepareMap()
                     this.update()
                 });
+                this.el.addEventListener('markerFound', e => {
+                    this.prepareMap()
+                    this.update()
+                });
+                this.el.addEventListener('markerLost', e => {
+                    this.prepareMap()
+                    this.remove()
+                });
             },
             prepareMap: function () {
                 this.traverseMesh(node => {
@@ -84,6 +92,7 @@
                 emitevents="true"
                 smooth="true"
                 cursor="fuse: false; rayOrigin: mouse;"
+                registerevents
                 id="markerA"
             >
 <!--
